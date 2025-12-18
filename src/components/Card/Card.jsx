@@ -1,4 +1,5 @@
 import { CardBody, CardContainer, CardFooter } from './CardStyled'
+import TextLimited from '../TextLimit/TextLimit'
 
 export function Card({ news }) {
     return (
@@ -6,20 +7,20 @@ export function Card({ news }) {
             <CardBody>
                 <div>
                     <h2>{news.title}</h2>
-                    <p>{news.text}</p>
+                    <img src={news.banner} alt="News banner" />
                 </div>
-                <img src={news.image} alt="News banner" />
+                <TextLimited text={news.text} limit = {150} />
             </CardBody>
 
             <CardFooter>
                 <div>
                     <i className="bi bi-hand-thumbs-up"></i>
-                    <span>{news.likes}</span>
+                    <span>{news.likes.length}</span>
                 </div>
 
                 <div>
                     <i className="bi bi-chat"></i>
-                    <span>{news.comments}</span>
+                    <span>{news.comments.length}</span>
                 </div>
             </CardFooter>
         </CardContainer>
