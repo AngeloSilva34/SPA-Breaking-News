@@ -14,8 +14,8 @@ const Nav = styled.nav`
 `
 
 const ImageLogo = styled.img`
-    max-width: 8rem;
-    max-height: 3.5rem;
+    width: 8rem;
+    height: 3.5rem;
     object-fit: cover;
     cursor: pointer;
 `
@@ -25,7 +25,7 @@ const InputSpace = styled.div`
     width: 200px;
     display: flex; align-items: center;
 
-    i {
+    button {
         position: absolute;
         top: 1;
         right: .2rem;
@@ -35,6 +35,13 @@ const InputSpace = styled.div`
         color: #757575;
         border-radius: .3rem;
         padding: .5rem;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    button:hover {
+        background-color: #757575;
+        color: #f5f5f5;
     }
 
     input {
@@ -73,10 +80,21 @@ const Button = styled.button`
 }
 `
 
+const ErrorSpan = styled.span`
+    background-color: #ffaeae;
+    color: #e90000;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+`
+
 
 export {
     Nav,
     ImageLogo,
     InputSpace,
-    Button
+    Button,
+    ErrorSpan
 }
