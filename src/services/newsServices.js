@@ -12,7 +12,13 @@ function getTopNews() {
     return response
 }
 
+function getSearchNews(name) {
+    const response = axios.get(`${baseURL}/news/search?name=${name}`)
+    return response
+}
+
 export {
     getAllNews,
-    getTopNews
+    getTopNews,
+    getSearchNews
 }
