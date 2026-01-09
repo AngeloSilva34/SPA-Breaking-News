@@ -1,18 +1,13 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import logo from '../../images/LogoBN.png'
-import { Nav, ImageLogo, Button, InputSpace, ErrorSpan } from './NavbarStyled'
+import { Nav, ImageLogo, InputSpace, ErrorSpan } from './NavbarStyled'
 import { useForm } from 'react-hook-form'
-import {z} from "zod"
 import { zodResolver } from '@hookform/resolvers/zod'
-
-const searchSchema = z.object({
-    title: z.string()
-    .nonempty({message: "A pesquisa não pode ser vazia"})
-    .refine(value => !/^\s*$/.test(value), {message: "A pesquisa não pode ter apenas espaços"})
-})
+import { Button } from '../Button/Button'
+import { searchSchema } from '../../schemas/searchSchema'
 
 export default function Navbar() {
-    const { register, handleSubmit, reset, formState: {errors} } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: zodResolver(searchSchema)
     })
     const navigate = useNavigate()
@@ -21,6 +16,10 @@ export default function Navbar() {
         const { title } = data
         navigate(`/search/${title}`)
         reset()
+    }
+
+    function goAuth() {
+        navigate('/auth')
     }
 
     return (
@@ -39,7 +38,9 @@ export default function Navbar() {
                     <ImageLogo src={logo} alt="Logo Breaking News" />
                 </Link>
 
-                <Button>Entrar</Button>
+                <Link to="/auth">
+                    <Button onClick={goAuth} type="button" text="Entrar"></Button>
+                </Link>
             </Nav>
             {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
             <Outlet />

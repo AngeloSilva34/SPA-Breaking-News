@@ -59,35 +59,14 @@ const InputSpace = styled.div`
     }
 `
 
-const Button = styled.button`
-    background-color: #0bade3;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    padding: .4rem 1rem;
-    color: #fff;
-    transition: all 0.4s ease-in-out;
-    cursor: pointer;
-    border-radius: .3rem;
-    font-family: Roboto, Arial;
-    /* width: 40%; */
-    font-weight: 500;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-
-    &:hover {
-    background-color: #0a86af;
-}
-`
-
 const ErrorSpan = styled.span`
-    background-color: #ffaeae;
-    color: #e90000;
-    padding: 1rem;
+    background-color: #ffd4d4;
+    color: #ff2e2e;
+    padding: .5rem;
     display: flex;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 7px
 `
 
 
@@ -95,6 +74,5 @@ export {
     Nav,
     ImageLogo,
     InputSpace,
-    Button,
     ErrorSpan
 }
