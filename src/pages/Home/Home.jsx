@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Cookies from 'js-cookie'
 
 import { Card } from "../../components/Card/Card";
 import { HomeBody, HomeHeader } from "./HomeStyled";
@@ -19,7 +20,6 @@ export default function Home() {
 
     useEffect(() => {
         findAllNews()
-        console.log()
     }, [])
 
     return (

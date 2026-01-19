@@ -13,12 +13,25 @@ import { signupSchema } from "../../schemas/signupSchema"
 import { signin, signup } from "../../services/userServices"
 
 function Authentication() {
+
+    const navigate = useNavigate()
+
     //logar
     const {
         register: registerSignin,
         handleSubmit: handleSubmitSignin,
         formState: { errors: errorsSignin }
     } = useForm({ resolver: zodResolver(signinSchema) })
+
+    async function inHandleSubmit(data) {
+        try {
+            const response = await signin(data)
+            Cookies.set('token', response.data, { expires: 1 })
+            navigate('/')
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     //cadastrar
     const {
@@ -27,27 +40,14 @@ function Authentication() {
         formState: { errors: errorsSignup }
     } = useForm({ resolver: zodResolver(signupSchema) })
 
-    const navigate = useNavigate()
-
-    async function inHandleSubmit(data) {
+    async function upHandleSubmit(data) {
         try {
-            const response = await signin(data)
-            console.log(response)
-            Cookies.set('token', response.data, {expires: 1})
+            const response = await signup(data)
+            Cookies.set('token', response.data, { expires: 1 })
             navigate('/')
-
-        } catch(err){
+        } catch (err) {
             console.log(err)
         }
-    }
-
-    async function upHandleSubmit(data) {
-        try{
-            const response = await signup(data)
-            Cookies.set('token', response.data.token, {expires: 1})
-            navigate('/')
-
-        } catch (err){console.log(err)}
     }
 
 

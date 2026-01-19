@@ -69,10 +69,42 @@ const ErrorSpan = styled.span`
     border-radius: 7px
 `
 
+const UserLoggedSpace = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    gap: 1rem;
+
+    Link {
+        text-decoration: none;
+    }
+
+    h2 {
+        font-size: 1.1 rem;
+        color: #0bade3;
+        transition: all .3s;
+        cursor: pointer;
+    }
+    h2:hover {
+    color: #043546;
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: #0bade3;
+        cursor: pointer;
+    }
+    i:hover {
+        color: #043546;
+    }
+`
+
 
 export {
     Nav,
     ImageLogo,
     InputSpace,
-    ErrorSpan
+    ErrorSpan,
+    UserLoggedSpace
 }
