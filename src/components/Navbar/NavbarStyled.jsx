@@ -66,7 +66,7 @@ const ErrorSpan = styled.span`
     display: flex;
     justify-content: center;
     font-size: 1rem;
-    border-radius: 7px
+    border-radius: 7px;
 `
 
 const UserLoggedSpace = styled.div`
@@ -76,12 +76,8 @@ const UserLoggedSpace = styled.div`
     max-width: 100%;
     gap: 1rem;
 
-    Link {
-        text-decoration: none;
-    }
-
     h2 {
-        font-size: 1.1 rem;
+        font-size: 1.1rem;
         color: #0bade3;
         transition: all .3s;
         cursor: pointer;

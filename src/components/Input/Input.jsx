@@ -1,7 +1,15 @@
-import { InputSpace } from "./InputStyled";
+import { InputSpace, TextSpace } from "./InputStyled";
 
-export function Input({type, placeholder, name, register}) {
+export function Input({ type, placeholder, name, register, isInput = true, value }) {
+    let inputProps = {
+        type, placeholder, ...register(name)
+    }
+    if(value) inputProps.value = value
+
     return (
-        <InputSpace type={type} placeholder={placeholder} {...register(name)} />
+        <>{isInput
+            ? (<InputSpace {...inputProps} />)
+            : (<TextSpace {...inputProps} /> )
+        }</>
     )
 }
