@@ -13,7 +13,6 @@ export function Profile() {
 
     async function findAllNewsByUser() {
         const newsResponse = await getNewsByUser()
-        console.log(newsResponse.data.results)
         setNews(newsResponse.data.results)
     }
 
@@ -39,7 +38,7 @@ export function Profile() {
                 </ProfileUser>
 
                 <ProfileActions>
-                    <Link to="/manage-news/add">
+                    <Link to="/manage-news/add/news">
                         <ProfileIconAdd>
                             <i className="bi bi-plus-circle"></i>
                         </ProfileIconAdd>

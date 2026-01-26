@@ -44,6 +44,21 @@ const CardHeader = styled.article`
         font-size: ${props => props.top ? "2rem" : "1.6rem"};
         width: 100%;
     }
+
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    i {
+        cursor: pointer;
+        color: #0bade3;
+        font-size: 1.1rem;
+        text-decoration: none;
+        border: none;
+    }
 `
 
 const CardFooter = styled.article`
