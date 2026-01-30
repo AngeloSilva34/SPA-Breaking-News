@@ -31,8 +31,18 @@ function userLogged() {
     return response;
 }
 
+function editPerfil(data) {
+    const response = axios.patch(`${baseURL}/user/update`, data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get('token')}`
+        }
+    })
+    return response
+}
+
 export {
     signup,
     signin,
-    userLogged
+    userLogged,
+    editPerfil
 }

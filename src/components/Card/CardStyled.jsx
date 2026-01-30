@@ -58,6 +58,10 @@ const CardHeader = styled.article`
         font-size: 1.1rem;
         text-decoration: none;
         border: none;
+
+        &:hover {
+            color: #0f6683;
+        }
     }
 `
 

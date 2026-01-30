@@ -4,13 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 
 import { AddNewsContainer } from "./MenageNewsStyled";
-import { Input } from "../../components/Input/Input";
-import { Button } from "../../components/Button/Button";
-import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
+import { Input } from "../../../components/Input/Input";
+import { Button } from "../../../components/Button/Button";
+import { ErrorSpan } from "../../../components/Navbar/NavbarStyled";
 
-import { newsSchema } from "../../schemas/newsSchema";
+import { newsSchema } from "../../../schemas/newsSchema";
 
-import { createNews, deleteNews, editNews, getNewsById } from "../../services/newsServices";
+import { createNews, deleteNews, editNews, getNewsById } from "../../../services/newsServices";
 
 export function ManageNews() {
     const { action, id } = useParams()

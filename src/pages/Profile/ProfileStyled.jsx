@@ -31,11 +31,17 @@ const ProfileIconEdit = styled.i`
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
-    :hover {
+    &:hover {
         color: #fff;
         background-color: #0bade3;
+
+        i {
+            color: #fff;
+            transition: all 0.1s ease-in-out;
+            background-color: #0bade3;
+        }
     }
 `
 
@@ -59,6 +65,8 @@ const ProfileUser = styled.div`
 const ProfileAvatar = styled.img`
     border-radius: 50%;
     width: 13rem;
+    /* width: 13px; */
+    height: 13rem;
     border: solid 5px #fff;
     object-fit: cover;
     object-position: center;

@@ -1,14 +1,16 @@
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../Context/UserContext"
+import Cookies from "js-cookie"
 
 import { ProfileAvatar, ProfileBackground, ProfileContainer, ProfileHeader, ProfileUser, ProfileIconEdit, ProfileActions, ProfileIconAdd, ProfileNews } from "./ProfileStyled"
 import { Card } from '../../components/Card/Card'
 import { Link } from "react-router-dom"
 
 import { getNewsByUser } from "../../services/newsServices"
+import { userLogged } from "../../services/userServices"
 
 export function Profile() {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const [news, setNews] = useState()
 
     async function findAllNewsByUser() {
@@ -16,8 +18,23 @@ export function Profile() {
         setNews(newsResponse.data.results)
     }
 
+        async function findUserLogged() {
+        try {
+            const response = await userLogged()
+            setUser(response.data)
+
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     useEffect(() => {
         findAllNewsByUser()
+
+        if(Cookies.get('refreshUser')) {
+            findUserLogged()
+            Cookies.remove('refreshUser')
+        }
     }, [])
 
     return (
@@ -26,7 +43,9 @@ export function Profile() {
             <ProfileHeader>
 
                 <ProfileIconEdit >
-                    <i className="bi bi-pencil-square" ></i>
+                    <Link to="/menage-profile" style={{ color: '#0bade3' }}>
+                        <i className="bi bi-pencil-square" ></i>
+                    </Link>
                 </ProfileIconEdit>
 
                 <ProfileBackground src={user.background} alt='Plano de fundo do usuário.' />
