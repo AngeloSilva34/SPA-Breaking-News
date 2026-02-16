@@ -1,16 +1,23 @@
-# React + Vite
+# SPA Breaking-News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma SPA(Single Page Aplication), desenvolvida utilizando React e Vite, que simula um sistema completo de notícias, podendo adicionar, excluir e editar usuário e notícias. Focada em demonstrar práticas modernas de desenvolvimento como validação de esquemas, gerenciamento de cookies para autenticação e estilização dinâmica.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias e Decisões Técnicas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Vite**: Escolhido como build tool pela rapidez no HMR (Hot Module Replacement) e configuração simplificada em comparação ao CRA.
 
-## React Compiler
+**Zod**: Implementado para garantir a integridade dos dados. Utilizado na validação de formulários.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Styled Components**: Utilizado para manter o CSS isolado por componente e permitir a criação de temas dinâmicos baseados nas props do React.
 
-## Expanding the ESLint configuration
+**js-cookie**: Gerenciamento simplificado de cookies para persistência de tokens de autenticação do usuário com foco em segurança.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Axios**: Cliente HTTP escolhido para facilitar a criação de instâncias personalizadas, interceptores de requisição (para injetar tokens) e tratamento global de erros.
+
+## ✨ Funcionalidades Principais
+
+- Validação de formulários em tempo real com feedback de erro.
+- Persistência de sessão utilizando cookies.
+- Interface responsiva com componentes estilizados dinâmicos.
+- Integração com API própria utilizando interceptores.
+- [API que desenvolvi e utilizei](https://github.com/AngeloSilva34/API-Breaking-News)
